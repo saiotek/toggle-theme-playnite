@@ -3,7 +3,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:sys="clr-namespace:System;assembly=mscorlib">
   <!--  This Session  -->
-  <sys:String x:Key="LOCThisSession">Cette Session</sys:String>
+  <sys:String x:Key="LOCThisSession">Session Actuelle</sys:String>
   <!--  Started  -->
   <sys:String x:Key="LOCStarted">Démarré</sys:String>
   <!--  Free Space:  -->
@@ -13,9 +13,9 @@
   <!--  NOW PLAYING  -->
   <sys:String x:Key="LOCNowPlayingCaps">EN COURS DE LECTURE</sys:String>
   <!--  Currently Playing  -->
-  <sys:String x:Key="LOCCurrentlyPlaying">En Cours de Lecture</sys:String>
+  <sys:String x:Key="LOCCurrentlyPlaying">Actuellement en Jeu</sys:String>
   <!--  Network Connectivity  -->
-  <sys:String x:Key="LOCNetworkConnectivity">Connectivité Réseau</sys:String>
+  <sys:String x:Key="LOCNetworkConnectivity">Connexion Réseau</sys:String>
   <!--  Storage  -->
   <sys:String x:Key="LOCStorage">Stockage</sys:String>
   <!--  Sky  -->
@@ -43,7 +43,7 @@
   <!--  Amber  -->
   <sys:String x:Key="LOCColorAmber">Ambre</sys:String>
   <!--  Lime  -->
-  <sys:String x:Key="LOCColorLime">Citron Vert</sys:String>
+  <sys:String x:Key="LOCColorLime">Vert Citron</sys:String>
   <!--  Emerald  -->
   <sys:String x:Key="LOCColorEmerald">Émeraude</sys:String>
   <!--  Violet  -->
