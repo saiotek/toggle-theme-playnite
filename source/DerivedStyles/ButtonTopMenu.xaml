@@ -21,7 +21,7 @@
               Margin="8"
               FontSize="52"
               Style="{StaticResource FluentIconStyle}"
-              Text="&#xf232;" />
+              Text="&#xf0e2;" />
           </Border>
           <ControlTemplate.Triggers>
             <Trigger Property="IsFocused" Value="True">

@@ -1089,8 +1089,19 @@
                                 x:Name="PART_ImageBackground"
                                 Grid.RowSpan="5"
                                 HorizontalAlignment="Center"
-                                VerticalAlignment="Top" />
-                            <DockPanel Grid.Row="2">
+                                VerticalAlignment="Top"
+                                Visibility="Collapsed" />
+                            <DockPanel>
+                                <DockPanel.Style>
+                                    <Style TargetType="DockPanel">
+                                        <Setter Property="Grid.Row" Value="2" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="False">
+                                                <Setter Property="Grid.RowSpan" Value="2" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DockPanel.Style>
                                 <Filters
                                     x:Name="PART_ElemFilters"
                                     Margin="0,-96,-8,0"
@@ -1108,31 +1119,28 @@
                                     Focusable="False" />
                                 <ListBoxEx
                                     x:Name="PART_ListGameItems"
-                                    Margin="0,-64,0,0"
-                                    Background="Transparent"
-                                    BorderThickness="0"
+                                    BorderBrush="{DynamicResource DefaultBorderBrush}"
                                     DockPanel.Dock="Right"
                                     KeyboardNavigation.DirectionalNavigation="Once"
                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                                    VirtualizingStackPanel.IsVirtualizing="True">
+                                    VirtualizingStackPanel.IsVirtualizing="True"
+                                    Focusable="False"
+                                            pbeh:FocusBahaviors.OnVisibilityFocus="True">
                                     <ListBoxEx.Style>
                                         <Style TargetType="ListBoxEx">
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="BorderThickness" Value="0" />
+                                            <Setter Property="Margin" Value="0,-64,0,0" />
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="False">
-                                                    <Setter Property="Margin" Value="0,0,0,-72" />
+                                                    <Setter Property="Margin" Value="-1,-16,-1,0" />
+                                                    <Setter Property="Background" Value="{StaticResource MainBackgourndBrush}" />
+                                                    <Setter Property="BorderThickness" Value="1" />
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
                                     </ListBoxEx.Style>
-                                    <ListBoxEx.OpacityMask>
-                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                            <GradientStop Offset="0" Color="Transparent" />
-                                            <GradientStop Offset="0.05" Color="Black" />
-                                            <GradientStop Offset="0.95" Color="Black" />
-                                            <GradientStop Offset="1" Color="Transparent" />
-                                        </LinearGradientBrush>
-                                    </ListBoxEx.OpacityMask>
                                 </ListBoxEx>
                             </DockPanel>
                             <TextBlock
@@ -1153,52 +1161,127 @@
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>
-                            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                <StackPanel.Style>
-                                    <Style TargetType="StackPanel">
-                                        <Setter Property="Margin" Value="98,28,0,-78" />
+                            <Border Grid.Row="1" BorderBrush="{StaticResource DefaultBorderBrush}" HorizontalAlignment="Stretch">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="BorderThickness" Value="0" />
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="False">
-                                                <Setter Property="Margin" Value="56,0,0,0" />
+                                                <Setter Property="BorderThickness" Value="0,0,0,1" />
+                                                <Setter Property="Background" Value="{DynamicResource MainBackgourndBrush}" />
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
-                                </StackPanel.Style>
-                                <Image
-                                    x:Name="DefaultImage"
-                                    Width="40"
-                                    Height="40"
-                                    Margin="0,-4"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Opacity="0.67"
-                                    RenderOptions.BitmapScalingMode="Fant"
-                                    Source="{ThemeFileBinding ActiveFilterPreset.Name,
-                                                              PathFormat='Icons/Filter/{0}.png'}"
-                                    Stretch="Uniform">
-                                    <Image.Style>
-                                        <Style TargetType="Image">
-                                            <Setter Property="Opacity" Value="1" />
+                                </Border.Style>
+
+                                <Grid Background="{StaticResource MainBackgourndBrush}">
+                                    <Grid.Style>
+                                        <Style TargetType="Grid">
+                                            <Setter Property="Margin" Value="98,28,0,-78" />
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Source}" Value="{x:Null}">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="False">
+                                                    <Setter Property="Margin" Value="360,0" />
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
-                                    </Image.Style>
-                                </Image>
-                                <TextBlock
-                                    Margin="16,0,0,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="32"
-                                    FontWeight="Bold"
-                                    Style="{DynamicResource TextBlockBaseStyle}"
-                                    Text="{Binding ActiveFilterPreset.Name}" />
-                            </StackPanel>
+                                    </Grid.Style>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="960" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <ContentControl
+                                        Grid.Column="0"
+                                        Width="120"
+                                        Height="64"
+                                        Margin="0"
+                                        ContentTemplate="{DynamicResource ButtonPromptLB}"
+                                    HorizontalAlignment="Right"
+                                        Focusable="False"
+                                        Opacity="0.67">
+                                        <ContentControl.Style>
+                                            <Style TargetType="ContentControl">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="True">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ContentControl.Style>
+                                    </ContentControl>
+                                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+                                        <StackPanel.Style>
+                                            <Style TargetType="StackPanel">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="False">
+                                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </StackPanel.Style>
+                                        <Image
+                                        x:Name="DefaultImage"
+                                        Width="40"
+                                        Height="40"
+                                        Margin="0,-4"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Opacity="0.67"
+                                        RenderOptions.BitmapScalingMode="Fant"
+                                        Source="{ThemeFileBinding ActiveFilterPreset.Name,
+                                                                  PathFormat='Icons/Filter/{0}.png'}"
+                                        Stretch="Uniform">
+                                            <Image.Style>
+                                                <Style TargetType="Image">
+                                                    <Setter Property="Opacity" Value="1" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Source}" Value="{x:Null}">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Image.Style>
+                                        </Image>
+                                        <TextBlock
+                                        Margin="16,0,0,0"
+                                        VerticalAlignment="Center"
+                                        FontSize="32"
+                                        FontWeight="Bold"
+                                        Style="{DynamicResource TextBlockBaseStyle}"
+                                        Text="{Binding ActiveFilterPreset.Name}" />
+                                    </StackPanel>
+
+                                    <ContentControl
+                                        Grid.Column="2"
+                                        Width="120"
+                                        Height="64"
+                                        Margin="0"
+                                        HorizontalAlignment="Left"
+                                        ContentTemplate="{DynamicResource ButtonPromptRB}"
+                                        Focusable="False"
+                                        Opacity="0.67" >
+                                        <ContentControl.Style>
+                                            <Style TargetType="ContentControl">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="True">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ContentControl.Style>
+                                    </ContentControl>
+                                </Grid>
+
+                            </Border>
                             <Grid Grid.Row="3" Margin="0">
                                 <Grid.Style>
                                     <Style TargetType="Grid">
                                         <Setter Property="Height" Value="140" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="False">
+                                                <Setter Property="Visibility" Value="Hidden" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
                                     </Style>
                                 </Grid.Style>
                                 <Grid.ColumnDefinitions>
@@ -1372,6 +1455,28 @@
                                             Color="Black" />
                                     </Border.Effect>
                                     <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                        <!--  Details  -->
+                                        <ButtonEx
+                                            x:Name="PART_ButtonDetails"
+                                            Content="{DynamicResource LOCGameDetails}"
+                                            Style="{DynamicResource ButtonBottomMenu}" />
+                                        <!--  Back  -->
+                                        <ButtonEx
+                                            Command="{Binding Content.ChangeProperty, ElementName=ThemeOptions_Command}"
+                                            CommandParameter="[Setter ElementName=CbChangeLayout, Property=IsChecked, Value=True]"
+                                            Content="{DynamicResource LOCListViewLabel}"
+                                            InputHint="{DynamicResource ButtonPromptB}">
+                                            <ButtonEx.Style>
+                                                <Style BasedOn="{StaticResource ButtonBottomMenu}" TargetType="ButtonEx">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="True">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ButtonEx.Style>
+                                        </ButtonEx>
                                         <!--  Install  -->
                                         <ButtonEx
                                             x:Name="PART_ButtonInstall"
@@ -1382,20 +1487,15 @@
                                             x:Name="PART_ButtonPlay"
                                             Content="{DynamicResource LOCPlayGame}"
                                             Style="{DynamicResource ButtonBottomMenu}" />
-                                        <!--  Details  -->
+                                        <!--  Search  -->
                                         <ButtonEx
-                                            x:Name="PART_ButtonDetails"
-                                            Content="{DynamicResource LOCGameDetails}"
+                                            x:Name="PART_ButtonSearch"
+                                            Content="{DynamicResource LOCSearchLabel}"
                                             Style="{DynamicResource ButtonBottomMenu}" />
                                         <!--  Options  -->
                                         <ButtonEx
                                             x:Name="PART_ButtonGameOptions"
                                             Content="{DynamicResource LOCGameOptions}"
-                                            Style="{DynamicResource ButtonBottomMenu}" />
-                                        <!--  Search  -->
-                                        <ButtonEx
-                                            x:Name="PART_ButtonSearch"
-                                            Content="{DynamicResource LOCSearchLabel}"
                                             Style="{DynamicResource ButtonBottomMenu}" />
                                         <!--  Filter  -->
                                         <ButtonEx
