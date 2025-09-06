@@ -126,3 +126,11 @@ Packages:
     Changelog:
       - ✨ Add ROG Ally button layout (requires ThemeOptions) ✨
       - Go to Settings ➡️ Theme Options ➡️ Button Layout to check it out
+  - Version: 1.5.6
+    RequiredApiVersion: 2.8.0
+    ReleaseDate: 2025-09-06
+    PackageUrl: https://github.com/jonosellier/toggle-theme-playnite/releases/download/v1.6.0/Toggle_28b7d2c0-105b-4632-8dca-d11348bd61d2_1_6_0.pthm
+    Changelog:
+      - ✨ Add Preview Images for Button Layouts ✨ - Go to Settings ➡️ Theme Options ➡️ Button Layout to check it out
+      - ✨ Added Library Icons for Amazon, Battle.net, EA, Epic, Fanatical, GOG, Humble, itch.io, Playnite, Riot, Rockstar Games, Playstation, Steam, Ubisoft, and Xbox ✨
+      - 🚀 Reduced theme size (from 7.1MB to 4.6MB) by removing unused assets from distributed theme 🚀
