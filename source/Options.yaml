@@ -154,26 +154,32 @@
     Presets:
       Default:
         Name: Xbox
+        Preview: button-previews\Xbox.png
       PlayStation:
         Name: PlayStation
         Files:
           - Images\ButtonPrompts\Others\PlayStation.xaml
+        Preview: button-previews\PS.png
       Steamdeck:
         Name: Steamdeck
         Files:
           - Images\ButtonPrompts\Others\Steamdeck.xaml
+        Preview: button-previews\Steamdeck.png
       Switch:
         Name: Switch
         Files:
           - Images\ButtonPrompts\Others\Switch.xaml
-      Generic:
-        Name: Platform-Agnostic
-        Files:
-          - Images\ButtonPrompts\Others\Generic.xaml
+        Preview: button-previews\Switch.png
       Ally:
         Name: ROG Ally
         Files:
           - Images\ButtonPrompts\Others\Ally.xaml
+        Preview: button-previews\Ally.png
+      Generic:
+        Name: Platform-Agnostic
+        Files:
+          - Images\ButtonPrompts\Others\Generic.xaml
+        Preview: button-previews\Generic.png
 Variables:
   HideChangeView:
     Title: Hide Change View Button
