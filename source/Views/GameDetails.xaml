@@ -30,16 +30,34 @@
                                     Margin="0,0,0,64"
                                     FontFamily="{DynamicResource FontDefaultBold}"
                                     FontSize="48"
-                                    Foreground="White"
                                     Style="{DynamicResource TextBlockBaseStyle}"
                                     Text="{Binding SelectedGame.DisplayName}"
                                     TextWrapping="Wrap" />
                                 <StackPanel Margin="0,0,0,32" Orientation="Horizontal">
                                     <TextBlock
-                                        Margin="0,0,12,0"
-                                        Opacity="0.75"
-                                        Style="{StaticResource FluentIconStyle}"
-                                        Text="&#xe734;" />
+                                        Margin="0,0,12,0">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock" BasedOn="{StaticResource FluentIconStyle}">
+                                                <Setter Property="Text" Value="&#xe734;" />
+                                                <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{PluginSettings Plugin=SuccessStory, Path=Locked}" Value="0">
+                                                        <Setter Property="Text" Value="&#xe735;" />
+                                                        <Setter Property="Foreground" Value="{DynamicResource UltraRareColor}" />
+                                                        <Setter Property="Effect">
+                                                            <Setter.Value>
+                                                                <DropShadowEffect
+                                                                    BlurRadius="8"
+                                                                    Opacity="0.8"
+                                                                    ShadowDepth="0"
+                                                                    Color="{StaticResource UltraRareGlow}" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                     <StackPanel Margin="0,0,12,0">
                                         <StackPanel>
                                             <StackPanel Orientation="Horizontal">
