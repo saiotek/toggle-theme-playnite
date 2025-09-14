@@ -83,6 +83,8 @@ Change covers in Playnite Desktop Mode Settings
 
 - ExtraMetadataLoader
 - Now Playing
+- SuccessStory
+- SuccessStory Fullscreen Helper
 - MoData
 
 ## Setting up filter names
