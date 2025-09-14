@@ -1142,7 +1142,8 @@
                                             <Setter Property="Margin" Value="98,28,0,-78" />
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="False">
-                                                    <Setter Property="Margin" Value="360,0" />
+                                                    <Setter Property="Margin" Value="0" />
+                                                    <Setter Property="HorizontalAlignment" Value="Center" />
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
