@@ -186,3 +186,32 @@ Variables:
     LocKey: LOCHideChangeView
     Type: Boolean
     Default: true
+  GameDetailsHeader:
+    Title: Game Details Info
+    Type: Header
+    TitleStyle: SettingsSectionHeaderText
+    Style: SettingsSectionHeaderDockPanelStyle
+  PlayTime:
+    Title: Play Time
+    LocKey: LOCTimePlayed
+    Type: Boolean
+    Default: true
+  LastPlayed:
+    Title: Last Played
+    LocKey: LOCGameLastActivityTitle
+    Type: Boolean
+    Default: true
+  ReleaseYear:
+    Title: Release Year
+    LocKey: LOCGameReleaseDateTitle
+    Type: Boolean
+    Default: false
+  Library:
+    Title: Library
+    LocKey: LOCGameProviderTitle
+    Type: Boolean
+    Default: true
+  Achievements:
+    Title: Achievements (Requires SuccessStory)
+    Type: Boolean
+    Default: true

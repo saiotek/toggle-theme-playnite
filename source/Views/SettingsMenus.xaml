@@ -324,4 +324,18 @@
         </StackPanel>
     </DataTemplate>
 
+    <Style
+        x:Key="SettingsSectionHeaderText"
+        BasedOn="{StaticResource TextBlockBaseStyle}"
+        TargetType="TextBlock">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="32" />
+        <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+        <Setter Property="Opacity" Value="0.75" />
+    </Style>
+
+    <Style x:Key="SettingsSectionHeaderDockPanelStyle" TargetType="DockPanel">
+        <Setter Property="Margin" Value="0,64,0,0" />
+    </Style>
+
 </ResourceDictionary>

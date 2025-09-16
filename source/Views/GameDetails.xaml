@@ -628,77 +628,133 @@
                                 Margin="0,0,20,20"
                                 DockPanel.Dock="Top"
                                 Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="0,0,12,0"
-                                    Opacity="0.75"
-                                    Style="{StaticResource FluentIconStyle}"
-                                    Text="&#xe916;" />
-                                <StackPanel>
+
+                                <!--  Playtime entry  -->
+                                <StackPanel Margin="0,0,48,0" Orientation="Horizontal">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[PlayTime]}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
                                     <TextBlock
-                                        FontFamily="{DynamicResource FontDefaultBold}"
-                                        Style="{DynamicResource TextBlockBaseStyle}"
-                                        Text="{Binding Playtime, Converter={StaticResource PlayTimeToStringConverter}}" />
-                                    <TextBlock
-                                        Margin="0,0,0,10"
-                                        FontSize="22"
+                                        Margin="0,0,12,0"
                                         Opacity="0.75"
-                                        Style="{DynamicResource TextBlockBaseStyle}"
-                                        Text="{DynamicResource LOCTimePlayed}" />
+                                        Style="{StaticResource FluentIconStyle}"
+                                        Text="&#xe916;" />
+                                    <StackPanel Margin="0,0,12,0">
+                                        <TextBlock
+                                            FontFamily="{DynamicResource FontDefaultBold}"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{Binding Playtime, Converter={StaticResource PlayTimeToStringConverter}}" />
+                                        <TextBlock
+                                            Margin="0,0,0,10"
+                                            FontSize="22"
+                                            Opacity="0.75"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{DynamicResource LOCTimePlayed}" />
+                                    </StackPanel>
                                 </StackPanel>
-                                <TextBlock
-                                    Margin="48,0,12,0"
-                                    Opacity="0.75"
-                                    Style="{StaticResource FluentIconStyle}"
-                                    Text="&#xec92;" />
-                                <StackPanel>
+
+                                <!--  Last Activity entry  -->
+                                <StackPanel Margin="0,0,48,0" Orientation="Horizontal">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[LastPlayed]}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
                                     <TextBlock
-                                        FontFamily="{DynamicResource FontDefaultBold}"
-                                        Style="{DynamicResource TextBlockBaseStyle}"
-                                        Text="{Binding LastActivity, Converter={StaticResource DateTimeToLastPlayedConverter}}" />
-                                    <TextBlock
-                                        Margin="0,0,0,10"
-                                        FontSize="22"
+                                        Margin="0,0,12,0"
                                         Opacity="0.75"
-                                        Style="{DynamicResource TextBlockBaseStyle}"
-                                        Text="{DynamicResource LOCGameLastActivityTitle}" />
+                                        Style="{StaticResource FluentIconStyle}"
+                                        Text="&#xec92;" />
+                                    <StackPanel Margin="0,0,12,0">
+                                        <TextBlock
+                                            FontFamily="{DynamicResource FontDefaultBold}"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{Binding LastActivity, Converter={StaticResource DateTimeToLastPlayedConverter}}" />
+                                        <TextBlock
+                                            Margin="0,0,0,10"
+                                            FontSize="22"
+                                            Opacity="0.75"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{DynamicResource LOCGameLastActivityTitle}" />
+                                    </StackPanel>
                                 </StackPanel>
-                                <TextBlock
-                                    Margin="48,0,12,0"
-                                    Opacity="0.75"
-                                    Style="{StaticResource FluentIconStyle}"
-                                    Text="&#xe787;" />
-                                <StackPanel>
+
+                                <!--  Release Year entry  -->
+                                <StackPanel Margin="0,0,48,0" Orientation="Horizontal">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[ReleaseYear]}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
                                     <TextBlock
-                                        FontFamily="{DynamicResource FontDefaultBold}"
-                                        Style="{DynamicResource TextBlockBaseStyle}"
-                                        Text="{Binding ReleaseYear}" />
-                                    <TextBlock
-                                        Margin="0,0,0,10"
-                                        FontSize="22"
+                                        Margin="0,0,12,0"
                                         Opacity="0.75"
-                                        Style="{DynamicResource TextBlockBaseStyle}"
-                                        Text="{DynamicResource LOCGameReleaseDateTitle}" />
+                                        Style="{StaticResource FluentIconStyle}"
+                                        Text="&#xe787;" />
+                                    <StackPanel Margin="0,0,12,0">
+                                        <TextBlock
+                                            FontFamily="{DynamicResource FontDefaultBold}"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{Binding ReleaseYear}" />
+                                        <TextBlock
+                                            Margin="0,0,0,10"
+                                            FontSize="22"
+                                            Opacity="0.75"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{DynamicResource LOCGameReleaseDateTitle}" />
+                                    </StackPanel>
                                 </StackPanel>
-                                <Image
-                                    Width="60"
-                                    Height="60"
-                                    Margin="48,0,12,0"
-                                    VerticalAlignment="Top"
-                                    Opacity="0.75"
-                                    Source="{ThemeFileBinding Library,
-                                                              PathFormat='Icons/Library/{0}.png'}"
-                                    Stretch="UniformToFill" />
-                                <StackPanel>
-                                    <TextBlock
-                                        FontFamily="{DynamicResource FontDefaultBold}"
-                                        Style="{DynamicResource TextBlockBaseStyle}"
-                                        Text="{Binding Library}" />
-                                    <TextBlock
-                                        Margin="0,0,0,10"
-                                        FontSize="22"
+
+                                <!--  Library entry  -->
+                                <StackPanel Margin="0,0,48,0" Orientation="Horizontal">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[Library]}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+                                    <Image
+                                        Width="60"
+                                        Height="60"
+                                        Margin="0,0,12,0"
+                                        VerticalAlignment="Top"
                                         Opacity="0.75"
-                                        Style="{DynamicResource TextBlockBaseStyle}"
-                                        Text="{DynamicResource LOCGameProviderTitle}" />
+                                        Source="{ThemeFileBinding Library,
+                                                                  PathFormat='Icons/Library/{0}.png'}"
+                                        Stretch="UniformToFill" />
+                                    <StackPanel Margin="0,0,12,0">
+                                        <TextBlock
+                                            FontFamily="{DynamicResource FontDefaultBold}"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{Binding Library}" />
+                                        <TextBlock
+                                            Margin="0,0,0,10"
+                                            FontSize="22"
+                                            Opacity="0.75"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{DynamicResource LOCGameProviderTitle}" />
+                                    </StackPanel>
                                 </StackPanel>
 
                                 <!--  Achievement entry  -->
@@ -710,52 +766,54 @@
                                                 <DataTrigger Binding="{PluginSettings Plugin=SuccessStory, Path=HasData}" Value="False">
                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                 </DataTrigger>
+                                                <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[Achievements]}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
                                     </StackPanel.Style>
                                     <TextBlock
-                                        Margin="48,0,12,0"
+                                        Margin="0,0,12,0"
                                         Opacity="0.75"
                                         Style="{StaticResource FluentIconStyle}"
                                         Text="&#xe734;" />
                                     <StackPanel Margin="0,0,12,0">
-                                        <StackPanel>
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock
-                                                    FontFamily="{DynamicResource FontDefaultBold}"
-                                                    Style="{DynamicResource TextBlockBaseStyle}"
-                                                    Text="{PluginSettings Plugin=SuccessStory,
-                                                                          Path=Unlocked,
-                                                                          FallbackValue='-'}" />
-                                                <TextBlock
-                                                    Margin="2,0,2,0"
-                                                    FontFamily="{DynamicResource FontDefaultBold}"
-                                                    Style="{DynamicResource TextBlockBaseStyle}"
-                                                    Text="/" />
-                                                <TextBlock
-                                                    FontFamily="{DynamicResource FontDefaultBold}"
-                                                    Style="{DynamicResource TextBlockBaseStyle}"
-                                                    Text="{PluginSettings Plugin=SuccessStory,
-                                                                          Path=Total,
-                                                                          FallbackValue='-'}" />
-                                                <TextBlock
-                                                    Margin="5,0,0,0"
-                                                    FontFamily="{DynamicResource FontDefaultBold}"
-                                                    Style="{DynamicResource TextBlockBaseStyle}"
-                                                    Text="{PluginSettings Plugin=SuccessStory,
-                                                                          Path=Percent,
-                                                                          FallbackValue='-',
-                                                                          StringFormat='({0}%)'}" />
-                                            </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
                                             <TextBlock
-                                                Margin="0,0,0,10"
-                                                FontSize="22"
-                                                Opacity="0.75"
+                                                FontFamily="{DynamicResource FontDefaultBold}"
                                                 Style="{DynamicResource TextBlockBaseStyle}"
-                                                Text="{DynamicResource LOCSuccessStoryAchievements}" />
+                                                Text="{PluginSettings Plugin=SuccessStory,
+                                                                      Path=Unlocked,
+                                                                      FallbackValue='-'}" />
+                                            <TextBlock
+                                                Margin="2,0,2,0"
+                                                FontFamily="{DynamicResource FontDefaultBold}"
+                                                Style="{DynamicResource TextBlockBaseStyle}"
+                                                Text="/" />
+                                            <TextBlock
+                                                FontFamily="{DynamicResource FontDefaultBold}"
+                                                Style="{DynamicResource TextBlockBaseStyle}"
+                                                Text="{PluginSettings Plugin=SuccessStory,
+                                                                      Path=Total,
+                                                                      FallbackValue='-'}" />
+                                            <TextBlock
+                                                Margin="5,0,0,0"
+                                                FontFamily="{DynamicResource FontDefaultBold}"
+                                                Style="{DynamicResource TextBlockBaseStyle}"
+                                                Text="{PluginSettings Plugin=SuccessStory,
+                                                                      Path=Percent,
+                                                                      FallbackValue='-',
+                                                                      StringFormat='({0}%)'}" />
                                         </StackPanel>
+                                        <TextBlock
+                                            Margin="0,0,0,10"
+                                            FontSize="22"
+                                            Opacity="0.75"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{DynamicResource LOCSuccessStoryAchievements}" />
                                     </StackPanel>
                                 </StackPanel>
+
                             </StackPanel>
 
                             <StackPanel

@@ -13,7 +13,6 @@
         <ResourceDictionary Source="Constants.xaml" />
         <ResourceDictionary Source="Media.xaml" />
         <ResourceDictionary Source="Images/ButtonPrompts/Xbox/Xbox.xaml" />
-        <ResourceDictionary Source="Images/ButtonPrompts/PlayStation/PlayStation.xaml" />
         <!--  Default Controls  -->
         <ResourceDictionary Source="DefaultControls/TextBox.xaml" />
         <ResourceDictionary Source="DefaultControls/Slider.xaml" />
