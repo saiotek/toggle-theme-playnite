@@ -520,8 +520,8 @@
                 <ControlTemplate TargetType="ContentControl">
                     <Grid>
                         <Border
-                            MinWidth="1280"
                             Height="640"
+                            MinWidth="1280"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Background="{DynamicResource BottomBarBackgroundBrush}"
@@ -1248,7 +1248,7 @@
                                 </DockPanel.Style>
                                 <Filters
                                     x:Name="PART_ElemFilters"
-                                    Margin="0,0,-64,0"
+                                    Margin="0,0,0,0"
                                     DockPanel.Dock="Left"
                                     Focusable="False" />
 
@@ -1927,19 +1927,25 @@
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch" />
 
-                        <Image Source="{ThemeFile 'Images/required-extensions.png'}" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <Image
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            Source="{ThemeFile 'Images/required-extensions.png'}">
                             <Image.Style>
                                 <Style TargetType="Image">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Setter Property="Opacity" Value="0"/>
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Setter Property="Opacity" Value="0" />
                                     <Style.Triggers>
                                         <DataTrigger Binding="{PluginStatus Plugin=ThemeOptions_904cbf3b-573f-48f8-9642-0a09d05c64ef, Status=Installed}" Value="False">
                                             <Setter Property="Visibility" Value="Visible" />
                                             <DataTrigger.EnterActions>
                                                 <BeginStoryboard>
                                                     <Storyboard>
-                                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" 
-                                               From="0" To="1" Duration="0:0:1"/>
+                                                        <DoubleAnimation
+                                                            Storyboard.TargetProperty="Opacity"
+                                                            From="0"
+                                                            To="1"
+                                                            Duration="0:0:1" />
                                                     </Storyboard>
                                                 </BeginStoryboard>
                                             </DataTrigger.EnterActions>
