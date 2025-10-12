@@ -164,3 +164,12 @@ Packages:
     Changelog:
       - 🐛 Fixed app update icon
       - ✨ Add ability to not zoom game covers on focus
+  - Version: 1.6.7
+    RequiredApiVersion: 2.8.0
+    ReleaseDate: 2025-00-12
+    PackageUrl: https://github.com/jonosellier/toggle-theme-playnite/releases/download/v1.6.7/Toggle_28b7d2c0-105b-4632-8dca-d11348bd61d2_1_6_7.pthm
+    Changelog:
+      - 🐛 Fixed game achievement UI inconsistency between unlocked and locked achievement
+      - 🐛 Change network icon to be more consistent with Windows 11 UI
+      - 🐛 Fix Cyan color using windows color scheme
+      - ✨ Add ability to open game details via touchscreen. Tap once to select a game then tap the selected game to get into the game details. This also works for mouse clicks.
