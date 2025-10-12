@@ -1113,8 +1113,11 @@
                                 Source="{Binding SelectedGame.IconObjectCached, FallbackValue={ThemeFile Images/applogo.png}}">
                                 <FadeImage.Style>
                                     <Style TargetType="FadeImage">
-                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <!-- <Setter Property="Visibility" Value="Collapsed" /> -->
                                         <Style.Triggers>
+                                            <!-- <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[BgStyle]}" Value="bg">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>-->
                                             <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="False">
                                                 <Setter Property="Visibility" Value="Collapsed" />
                                             </DataTrigger>
@@ -1122,7 +1125,7 @@
                                     </Style>
                                 </FadeImage.Style>
                             </FadeImage>
-                            <Image
+                            <!-- <Image
                                 Grid.RowSpan="5"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
@@ -1135,7 +1138,11 @@
                                 </Image.Effect>
                                 <Image.Style>
                                     <Style TargetType="Image">
+                                        <Setter Property="Visibility" Value="Collapsed" />
                                         <Style.Triggers>
+                                            <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[BgStyle]}" Value="icons">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
                                             <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="False">
                                                 <Setter Property="Visibility" Value="Collapsed" />
                                             </DataTrigger>
@@ -1147,7 +1154,20 @@
                                 <Rectangle.Fill>
                                     <ImageBrush ImageSource="{ThemeFile 'Images/button-full.png'}" />
                                 </Rectangle.Fill>
-                            </Rectangle>
+                                <Rectangle.Style>
+                                    <Style TargetType="Rectangle">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[BgStyle]}" Value="icons">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Settings Fullscreen.HorizontalLayout}" Value="False">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Rectangle.Style>
+                            </Rectangle>-->
                             <Border
                                 Grid.Row="1"
                                 HorizontalAlignment="Stretch"
