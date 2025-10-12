@@ -22,7 +22,7 @@
 
         <SolidColorBrush x:Key="TextBrush" Color="{DynamicResource TextColor}" />
         <SolidColorBrush x:Key="TextBrushDark" Color="{DynamicResource TextColorDark}" />
-        <SolidColorBrush x:Key="PrimaryBrush" Color="{Binding Source={x:Static SystemParameters.WindowGlassBrush}, Path=Color}" />
+        <SolidColorBrush x:Key="PrimaryBrush" Color="#38bdf8" />
         <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource ControlBackgroundColor}" />
         <SolidColorBrush x:Key="ControlBackgroundDarkBrush" Color="{DynamicResource ControlBackgroundColorDark}" />
         <SolidColorBrush x:Key="SelectionLightBrush" Color="{DynamicResource SelectionLightColor}" />
