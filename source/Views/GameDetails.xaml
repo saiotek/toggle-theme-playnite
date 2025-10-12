@@ -438,6 +438,12 @@
                                                                                 Style="{DynamicResource TextBlockBaseStyle}"
                                                                                 Text="{Binding DateWhenUnlockedString}"
                                                                                 Visibility="{Binding IsUnlock, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                                            <TextBlock
+                                                                                FontSize="11"
+                                                                                Opacity="0.7"
+                                                                                Style="{DynamicResource TextBlockBaseStyle}"
+                                                                                Text="Locked"
+                                                                                Visibility="{Binding IsUnlock, Converter={StaticResource InvertedBooleanToVisibilityConverter}}" />
                                                                         </StackPanel>
                                                                     </StackPanel>
                                                                 </Grid>
