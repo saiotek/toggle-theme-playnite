@@ -149,7 +149,7 @@
             Value: '#64748b'
         Preview: color-swatches/Slate.png
   ButtonPromptOption:
-    Name: ButtonPrompts
+    Name: Button Prompts
     LocKey: LOCSettingsFullscreenButtonPrompts
     Presets:
       Default:
@@ -180,21 +180,17 @@
         Files:
           - Images\ButtonPrompts\Others\Generic.xaml
         Preview: button-previews\Generic.png
-  # BgStyleOptions:
-  #   Title: Background Image
-  #   Presets:
-  #     Default:
-  #       Name: Icon Grid
-  #       Constants:
-  #         BgStyle:
-  #           Type: String
-  #           Value: icons
-  #     Background:
-  #       Name: Game Background
-  #       Constants:
-  #         BgStyle:
-  #           Type: String
-  #           Value: bg
+  BgStyleOptions:
+    Name: Background Image
+    Presets:
+      Default:
+        Name: Icon Grid
+      Background:
+        Name: Game Background
+        Constants:
+          BgStyle:
+            Type: String
+            Value: bg
 Variables:
   HideChangeView:
     Title: Hide Change View Button
