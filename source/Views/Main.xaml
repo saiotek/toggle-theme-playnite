@@ -963,7 +963,7 @@
                                                                 <Setter Property="Text" Value="&#xf384;" />
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{PluginSettings Plugin=MoData, Path=WifiStrength}" Value="Wired">
-                                                                <Setter Property="Text" Value="&#xecf0;" />
+                                                                <Setter Property="Text" Value="&#xe839;" />
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
@@ -1921,7 +1921,7 @@
                                                                 <Setter Property="Text" Value="&#xf384;" />
                                                             </DataTrigger>
                                                             <DataTrigger Binding="{PluginSettings Plugin=MoData, Path=WifiStrength}" Value="Wired">
-                                                                <Setter Property="Text" Value="&#xecf0;" />
+                                                                <Setter Property="Text" Value="&#xe839;" />
                                                             </DataTrigger>
                                                         </Style.Triggers>
                                                     </Style>
