@@ -173,3 +173,12 @@ Packages:
       - 🐛 Change network icon to be more consistent with Windows 11 UI
       - 🐛 Fix Cyan color using windows color scheme
       - ✨ Add ability to open game details via touchscreen. Tap once to select a game then tap the selected game to get into the game details. This also works for mouse clicks.
+  - Version: 1.7.0
+    RequiredApiVersion: 2.8.0
+    ReleaseDate: 2025-10-21
+    PackageUrl: https://github.com/jonosellier/toggle-theme-playnite/releases/download/v1.7.0/Toggle_28b7d2c0-105b-4632-8dca-d11348bd61d2_1_7_0.pthm
+    Changelog:
+      - ✨ Add support for an icon pixel grid background (configurable in Theme Options)
+      - ✨ Use W11 LAN icon for wired networks to be consistent with the OS)
+      - ✨ Make WiFi icon more clear with faded empty bars being shown
+      - ✨ Add support for ThemeOptions extensions feature
