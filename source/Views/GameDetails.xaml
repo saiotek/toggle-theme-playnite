@@ -160,84 +160,6 @@
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>
                                     </Grid>
-                                    <!--  HLTB  -->
-                                    <Grid Height="48" Margin="0,24,16,64">
-                                        <Grid.Style>
-                                            <Style TargetType="Grid">
-                                                <Setter Property="Visibility" Value="Visible" />
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{PluginSettings Plugin=HowLongToBeat, Path=HasDataEmpty}" Value="True">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}" Value="False">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{PluginSettings Plugin=HowLongToBeat, Path=HasData}" Value="False">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </Grid.Style>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="64" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Image
-                                            Grid.Column="0"
-                                            Width="48"
-                                            Height="48"
-                                            Margin="0,-32,0,0"
-                                            Opacity="0.75"
-                                            Source="{ThemeFile 'Icons/hltb.png'}" />
-                                        <Grid
-                                            Grid.Column="1"
-                                            Height="48"
-                                            Margin="0">
-                                            <!--  Completionist (Background/Longest)  -->
-                                            <ProgressBar
-                                                Foreground="#4ade80"
-                                                Maximum="{PluginSettings Plugin=HowLongToBeat,
-                                                                         Path=Completionist}"
-                                                Style="{StaticResource LabeledProgressBarStyle}"
-                                                Tag="{PluginSettings Plugin=HowLongToBeat,
-                                                                     Path=CompletionistFormat}"
-                                                Value="{PluginSettings Plugin=HowLongToBeat,
-                                                                       Path=Completionist}" />
-
-                                            <!--  Main + Extra (Middle)  -->
-                                            <ProgressBar
-                                                Background="Transparent"
-                                                Foreground="#818cf8"
-                                                Maximum="{PluginSettings Plugin=HowLongToBeat,
-                                                                         Path=Completionist}"
-                                                Style="{StaticResource LabeledProgressBarStyle}"
-                                                Tag="{PluginSettings Plugin=HowLongToBeat,
-                                                                     Path=MainExtraFormat}"
-                                                Value="{PluginSettings Plugin=HowLongToBeat,
-                                                                       Path=MainExtra}" />
-
-                                            <!--  Main Story (Foreground/Shortest)  -->
-                                            <ProgressBar
-                                                Background="Transparent"
-                                                Foreground="#22d3ee"
-                                                Maximum="{PluginSettings Plugin=HowLongToBeat,
-                                                                         Path=Completionist}"
-                                                Style="{StaticResource LabeledProgressBarStyle}"
-                                                Tag="{PluginSettings Plugin=HowLongToBeat,
-                                                                     Path=MainStoryFormat}"
-                                                Value="{PluginSettings Plugin=HowLongToBeat,
-                                                                       Path=MainStory}" />
-                                            <!--  Your progress  -->
-                                            <ProgressBar
-                                                Margin="0,-32,0,0"
-                                                Foreground="#FFFFFF"
-                                                Maximum="{PluginSettings Plugin=HowLongToBeat,
-                                                                         Path=Completionist}"
-                                                Opacity="0.75"
-                                                Style="{StaticResource CircleProgressBarStyle}"
-                                                Value="{Binding SelectedGame.Playtime, Mode=OneWay}" />
-                                        </Grid>
-                                    </Grid>
                                     <HtmlTextView
                                         x:Name="PART_HtmlDescription"
                                         FocusVisualStyle="{x:Null}"
@@ -889,71 +811,94 @@
                         KeyboardNavigation.TabNavigation="Cycle">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="24" />
-                            <ColumnDefinition Width="480" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="24" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="3*" />
-                            <RowDefinition Height="4*" />
-                            <RowDefinition Height="24" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="190" />
+                            <RowDefinition Height="70" />
                         </Grid.RowDefinitions>
                         <FadeImage
                             x:Name="PART_ImageBackground"
-                            Grid.RowSpan="3"
-                            Grid.ColumnSpan="5"
+                            Grid.RowSpan="1"
+                            Grid.ColumnSpan="4"
+                            Stretch="UniformToFill"
+                            Width="Auto"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Top" />
                         <ContentControl
                             x:Name="ExtraMetadataLoader_LogoLoaderControl"
                             Grid.Row="0"
-                            Grid.Column="1"
-                            Grid.ColumnSpan="2">
+                            Grid.Column="1">
                             <ContentControl.Style>
                                 <Style TargetType="ContentControl">
                                     <Setter Property="MaxWidth" Value="600" />
-                                    <Setter Property="MaxHeight" Value="250" />
+                                    <Setter Property="MaxHeight" Value="350" />
                                     <Setter Property="Opacity" Value="1" />
-                                    <Setter Property="Margin" Value="32,0,0,32" />
+                                    <Setter Property="Margin" Value="32,0,0,64" />
                                     <Setter Property="HorizontalAlignment" Value="Left" />
                                     <Setter Property="VerticalAlignment" Value="Bottom" />
                                 </Style>
                             </ContentControl.Style>
                         </ContentControl>
 
+                        <Grid 
+                            Grid.Row="4" 
+                            Grid.Column="0" 
+                            Grid.ColumnSpan="4" 
+                            Height="70" 
+                            HorizontalAlignment="Right">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="24" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="24" />
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="1">
+                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                    <!--  Select  -->
+                                    <ButtonEx
+                                            x:Name="PART_ButtonSelect"
+                                            Content="{DynamicResource LOCSelect}"
+                                            Style="{DynamicResource ButtonBottomMenu}" 
+                                            InputHint="{DynamicResource ButtonPromptA}" />
+                                    <!--  Back  -->
+                                    <ButtonEx
+                                        x:Name="PART_ButtonBack"
+                                        Content="{DynamicResource LOCBackLabel}"
+                                        Style="{DynamicResource ButtonBottomMenu}" 
+                                        InputHint="{DynamicResource ButtonPromptB}" />
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
                         <Border
                             Grid.Row="1"
-                            Grid.Column="1"
-                            Grid.ColumnSpan="3"
+                            Grid.RowSpan="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
                             Background="{DynamicResource GameDetailsBackgroundBrush}"
                             BorderBrush="{DynamicResource DefaultBorderBrush}"
-                            BorderThickness="1"
-                            CornerRadius="16">
-                            <Border.Effect>
-                                <DropShadowEffect
-                                    BlurRadius="10"
-                                    Direction="315"
-                                    Opacity="0.5"
-                                    ShadowDepth="5"
-                                    Color="Black" />
-                            </Border.Effect>
-                        </Border>
+                            BorderThickness="0,1,0,1" />
 
                         <Border
                             x:Name="Mask"
-                            Grid.Row="1"
-                            Grid.Column="3"
-                            Margin="1"
+                            Grid.Row="2"
+                            Grid.RowSpan="2"
+                            Grid.Column="2"
+                            Margin="0,0,24,24"
                             Background="Black"
-                            CornerRadius="0,15,15,0" />
-
+                            CornerRadius="15,15,15,15" />
 
                         <Image
                             x:Name="PART_ImageCover"
-                            Grid.Row="1"
-                            Grid.Column="3"
-                            Margin="1"
+                            Grid.Row="2"
+                            Grid.RowSpan="2"
+                            Grid.Column="2"
+                            Margin="0,0,24,24"
                             VerticalAlignment="Stretch">
                             <Image.OpacityMask>
                                 <VisualBrush
@@ -963,54 +908,46 @@
                             </Image.OpacityMask>
                         </Image>
 
-                        <Grid
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Grid.ColumnSpan="2"
-                            Margin="32,32,0,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="1*" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-
+                        <Border Grid.Row="1"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Margin="22,22,22,22"
+                                BorderBrush="{DynamicResource DefaultBorderBrush}"
+                                BorderThickness="0,0,0,2">
                             <StackPanel
-                                Grid.Row="0"
-                                Margin="0,0,0,20"
-                                VerticalAlignment="Center"
+                                Margin="0,0,0,12"
                                 Orientation="Horizontal">
-                                <StackPanel.Style>
-                                    <Style TargetType="StackPanel">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{PluginStatus Plugin=ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429, Status=Installed}" Value="True">
-                                                <Setter Property="Visibility" Value="Collapsed" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </StackPanel.Style>
-                                <TextBlock
-                                    FontFamily="{DynamicResource FontDefaultBold}"
-                                    FontSize="64"
-                                    Foreground="White"
-                                    Style="{DynamicResource TextBlockBaseStyle}"
-                                    Text="{Binding DisplayName}">
-                                    <TextBlock.Effect>
-                                        <DropShadowEffect
-                                            Opacity="1"
-                                            RenderingBias="Quality"
-                                            ShadowDepth="2"
-                                            Color="Black" />
-                                    </TextBlock.Effect>
-                                </TextBlock>
-                            </StackPanel>
 
-                            <StackPanel
-                                Grid.Row="1"
-                                Margin="0,0,20,20"
-                                Orientation="Horizontal">
+                                <!--  Last Activity entry  -->
+                                <StackPanel Margin="0,0,48,0" Orientation="Horizontal">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[LastPlayed]}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+                                    <TextBlock
+                                        Margin="0,0,12,0"
+                                        Opacity="0.75"
+                                        Style="{StaticResource FluentIconStyle}"
+                                        Text="&#xec92;" />
+                                    <StackPanel Margin="0,0,12,0">
+                                        <TextBlock
+                                            FontFamily="{DynamicResource FontDefaultBold}"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{Binding LastActivity, Converter={StaticResource DateTimeToLastPlayedConverter}}" />
+                                        <TextBlock
+                                            Margin="0,0,0,10"
+                                            FontSize="22"
+                                            Opacity="0.75"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{DynamicResource LOCGameLastActivityTitle}" />
+                                    </StackPanel>
+                                </StackPanel>
 
                                 <!--  Playtime entry  -->
                                 <StackPanel Margin="0,0,48,0" Orientation="Horizontal">
@@ -1043,13 +980,16 @@
                                     </StackPanel>
                                 </StackPanel>
 
-                                <!--  Last Activity entry  -->
+                                <!--  Achievement entry  -->
                                 <StackPanel Margin="0,0,48,0" Orientation="Horizontal">
                                     <StackPanel.Style>
                                         <Style TargetType="StackPanel">
                                             <Setter Property="Visibility" Value="Visible" />
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[LastPlayed]}" Value="False">
+                                                <DataTrigger Binding="{PluginSettings Plugin=SuccessStory, Path=HasData}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[Achievements]}" Value="False">
                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                 </DataTrigger>
                                             </Style.Triggers>
@@ -1059,18 +999,41 @@
                                         Margin="0,0,12,0"
                                         Opacity="0.75"
                                         Style="{StaticResource FluentIconStyle}"
-                                        Text="&#xec92;" />
+                                        Text="&#xe734;" />
                                     <StackPanel Margin="0,0,12,0">
-                                        <TextBlock
-                                            FontFamily="{DynamicResource FontDefaultBold}"
-                                            Style="{DynamicResource TextBlockBaseStyle}"
-                                            Text="{Binding LastActivity, Converter={StaticResource DateTimeToLastPlayedConverter}}" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                FontFamily="{DynamicResource FontDefaultBold}"
+                                                Style="{DynamicResource TextBlockBaseStyle}"
+                                                Text="{PluginSettings Plugin=SuccessStory,
+                                                                    Path=Unlocked,
+                                                                    FallbackValue='-'}" />
+                                            <TextBlock
+                                                Margin="2,0,2,0"
+                                                FontFamily="{DynamicResource FontDefaultBold}"
+                                                Style="{DynamicResource TextBlockBaseStyle}"
+                                                Text="/" />
+                                            <TextBlock
+                                                FontFamily="{DynamicResource FontDefaultBold}"
+                                                Style="{DynamicResource TextBlockBaseStyle}"
+                                                Text="{PluginSettings Plugin=SuccessStory,
+                                                                    Path=Total,
+                                                                    FallbackValue='-'}" />
+                                            <TextBlock
+                                                Margin="5,0,0,0"
+                                                FontFamily="{DynamicResource FontDefaultBold}"
+                                                Style="{DynamicResource TextBlockBaseStyle}"
+                                                Text="{PluginSettings Plugin=SuccessStory,
+                                                                    Path=Percent,
+                                                                    FallbackValue='-',
+                                                                    StringFormat='({0}%)'}" />
+                                        </StackPanel>
                                         <TextBlock
                                             Margin="0,0,0,10"
                                             FontSize="22"
                                             Opacity="0.75"
                                             Style="{DynamicResource TextBlockBaseStyle}"
-                                            Text="{DynamicResource LOCGameLastActivityTitle}" />
+                                            Text="{DynamicResource LOCSuccessStoryAchievements}" />
                                     </StackPanel>
                                 </StackPanel>
 
@@ -1106,7 +1069,7 @@
                                 </StackPanel>
 
                                 <!--  Library entry  -->
-                                <StackPanel Margin="0,0,48,0" Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
                                     <StackPanel.Style>
                                         <Style TargetType="StackPanel">
                                             <Setter Property="Visibility" Value="Visible" />
@@ -1124,7 +1087,7 @@
                                         VerticalAlignment="Top"
                                         Opacity="0.75"
                                         Source="{ThemeFileBinding Library,
-                                                                  PathFormat='Icons/Library/{0}.png'}"
+                                                                PathFormat='Icons/Library/{0}.png'}"
                                         Stretch="UniformToFill" />
                                     <StackPanel Margin="0,0,12,0">
                                         <TextBlock
@@ -1139,325 +1102,232 @@
                                             Text="{DynamicResource LOCGameProviderTitle}" />
                                     </StackPanel>
                                 </StackPanel>
-
-                                <!--  Achievement entry  -->
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel.Style>
-                                        <Style TargetType="StackPanel">
-                                            <Setter Property="Visibility" Value="Visible" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{PluginSettings Plugin=SuccessStory, Path=HasData}" Value="False">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[Achievements]}" Value="False">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </StackPanel.Style>
-                                    <TextBlock
-                                        Margin="0,0,12,0"
-                                        Opacity="0.75"
-                                        Style="{StaticResource FluentIconStyle}"
-                                        Text="&#xe734;" />
-                                    <StackPanel Margin="0,0,12,0">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock
-                                                FontFamily="{DynamicResource FontDefaultBold}"
-                                                Style="{DynamicResource TextBlockBaseStyle}"
-                                                Text="{PluginSettings Plugin=SuccessStory,
-                                                                      Path=Unlocked,
-                                                                      FallbackValue='-'}" />
-                                            <TextBlock
-                                                Margin="2,0,2,0"
-                                                FontFamily="{DynamicResource FontDefaultBold}"
-                                                Style="{DynamicResource TextBlockBaseStyle}"
-                                                Text="/" />
-                                            <TextBlock
-                                                FontFamily="{DynamicResource FontDefaultBold}"
-                                                Style="{DynamicResource TextBlockBaseStyle}"
-                                                Text="{PluginSettings Plugin=SuccessStory,
-                                                                      Path=Total,
-                                                                      FallbackValue='-'}" />
-                                            <TextBlock
-                                                Margin="5,0,0,0"
-                                                FontFamily="{DynamicResource FontDefaultBold}"
-                                                Style="{DynamicResource TextBlockBaseStyle}"
-                                                Text="{PluginSettings Plugin=SuccessStory,
-                                                                      Path=Percent,
-                                                                      FallbackValue='-',
-                                                                      StringFormat='({0}%)'}" />
-                                        </StackPanel>
-                                        <TextBlock
-                                            Margin="0,0,0,10"
-                                            FontSize="22"
-                                            Opacity="0.75"
-                                            Style="{DynamicResource TextBlockBaseStyle}"
-                                            Text="{DynamicResource LOCSuccessStoryAchievements}" />
-                                    </StackPanel>
-                                </StackPanel>
-
                             </StackPanel>
+                        </Border>
 
-                            <StackPanel
-                                Grid.Row="2"
-                                Margin="0,0,0,48"
+                        <StackPanel
+                            pbeh:FocusBahaviors.FocusBinding="True"
+                            pbeh:FocusBahaviors.OnVisibilityFocus="True"
+                            Margin="22,0,22,0"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Top">
+                            <ButtonEx
+                                x:Name="PART_ButtonContext"
+                                MinWidth="220"
+                                Margin="2"
+                                HorizontalContentAlignment="Center"
                                 pbeh:FocusBahaviors.FocusBinding="True"
                                 pbeh:FocusBahaviors.OnVisibilityFocus="True"
-                                Orientation="Horizontal">
-                                <ButtonEx
-                                    x:Name="PART_ButtonContext"
-                                    MinWidth="220"
-                                    Margin="2"
-                                    HorizontalContentAlignment="Center"
-                                    pbeh:FocusBahaviors.FocusBinding="True"
-                                    pbeh:FocusBahaviors.OnVisibilityFocus="True"
-                                    BorderThickness="2">
-                                    <ButtonEx.Style>
-                                        <Style BasedOn="{StaticResource ButtonBig}" TargetType="ButtonEx">
-                                            <Setter Property="Visibility" Value="Visible" />
-                                            <Style.Triggers>
-                                                <MultiDataTrigger>
-                                                    <MultiDataTrigger.Conditions>
-                                                        <Condition Binding="{PluginStatus Plugin=NowPlaying_db4e7ade-57fb-426c-8392-60e2347a0209, Status=Installed}" Value="True" />
-                                                        <Condition Binding="{Binding Game.IsRunning}" Value="True" />
-                                                    </MultiDataTrigger.Conditions>
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </MultiDataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </ButtonEx.Style>
-                                </ButtonEx>
-                                <ButtonEx
-                                    Margin="0,2,2,2"
-                                    pbeh:FocusBahaviors.FocusBinding="True"
-                                    pbeh:FocusBahaviors.OnVisibilityFocus="True"
-                                    BorderThickness="2"
-                                    Command="{PluginSettings Plugin=NowPlaying,
-                                                             Path=ReturnToGame}">
-                                    <ButtonEx.Style>
-                                        <Style BasedOn="{StaticResource ButtonBig}" TargetType="ButtonEx">
-                                            <Setter Property="Visibility" Value="Visible" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Game.IsRunning}" Value="False">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{PluginStatus Plugin=NowPlaying_db4e7ade-57fb-426c-8392-60e2347a0209, Status=Installed}" Value="False">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </ButtonEx.Style>
-                                    Return to Game
-                                </ButtonEx>
-                                <ButtonEx
-                                    Margin="32,2,2,2"
-                                    BorderThickness="2"
-                                    Command="{PluginSettings Plugin=NowPlaying,
-                                                             Path=CloseGame}">
-                                    <ButtonEx.Style>
-                                        <Style BasedOn="{StaticResource ButtonBig}" TargetType="ButtonEx">
-                                            <Setter Property="Visibility" Value="Visible" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Game.IsRunning}" Value="False">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{PluginStatus Plugin=NowPlaying_db4e7ade-57fb-426c-8392-60e2347a0209, Status=Installed}" Value="False">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </ButtonEx.Style>
-                                    Exit
-                                </ButtonEx>
-                                <ButtonEx
-                                    Margin="32,2,2,2"
-                                    BorderThickness="2"
-                                    Command="{PluginSettings Plugin=SSHelper,
-                                                             Path=OpenGameAchievementWindow}"
-                                    Content="{DynamicResource LOCSuccessStoryAchievements}">
-                                    <ButtonEx.Style>
-                                        <Style BasedOn="{StaticResource ButtonBig}" TargetType="ButtonEx">
-                                            <Setter Property="Visibility" Value="Visible" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{PluginSettings Plugin=SuccessStory, Path=HasData}" Value="False">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{PluginStatus Plugin=SuccessStoryFullscreenHelper, Status=Installed}" Value="False">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </ButtonEx.Style>
-                                </ButtonEx>
-                                <ButtonEx
-                                    x:Name="PART_ButtonOptions"
-                                    Height="78"
-                                    MinWidth="22"
-                                    Margin="32,2,2,2"
-                                    HorizontalContentAlignment="Center"
-                                    BorderThickness="2"
-                                    Style="{DynamicResource ButtonBigRound}">
-                                    <TextBlock
-                                        Width="78"
-                                        Height="73"
-                                        FontSize="48"
-                                        TextAlignment="Center">
-                                        &#x2022;&#x2022;&#x2022;
-                                    </TextBlock>
-                                </ButtonEx>
-                            </StackPanel>
-
-                            <Grid
-                                Grid.Row="3"
-                                Height="48"
-                                Margin="0,0,16,0">
-                                <Grid.Style>
-                                    <Style TargetType="Grid">
+                                BorderThickness="2">
+                                <ButtonEx.Style>
+                                    <Style BasedOn="{StaticResource ButtonBig}" TargetType="ButtonEx">
                                         <Setter Property="Visibility" Value="Visible" />
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{PluginSettings Plugin=HowLongToBeat, Path=HasDataEmpty}" Value="True">
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{PluginStatus Plugin=NowPlaying_db4e7ade-57fb-426c-8392-60e2347a0209, Status=Installed}" Value="True" />
+                                                    <Condition Binding="{Binding Game.IsRunning}" Value="True" />
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ButtonEx.Style>
+                            </ButtonEx>
+                            <ButtonEx
+                                Margin="0,2,2,2"
+                                pbeh:FocusBahaviors.FocusBinding="True"
+                                pbeh:FocusBahaviors.OnVisibilityFocus="True"
+                                BorderThickness="2"
+                                Command="{PluginSettings Plugin=NowPlaying,
+                                                            Path=ReturnToGame}">
+                                <ButtonEx.Style>
+                                    <Style BasedOn="{StaticResource ButtonBig}" TargetType="ButtonEx">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Game.IsRunning}" Value="False">
                                                 <Setter Property="Visibility" Value="Collapsed" />
                                             </DataTrigger>
-                                            <DataTrigger Binding="{PluginStatus Plugin=playnite-howlongtobeat-plugin, Status=Installed}" Value="False">
-                                                <Setter Property="Visibility" Value="Collapsed" />
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{PluginSettings Plugin=HowLongToBeat, Path=HasData}" Value="False">
-                                                <Setter Property="Visibility" Value="Collapsed" />
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[HowLongToBeat]}" Value="False">
+                                            <DataTrigger Binding="{PluginStatus Plugin=NowPlaying_db4e7ade-57fb-426c-8392-60e2347a0209, Status=Installed}" Value="False">
                                                 <Setter Property="Visibility" Value="Collapsed" />
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
-                                </Grid.Style>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="64" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Image
-                                    Grid.Column="0"
-                                    Width="48"
-                                    Height="48"
-                                    Margin="0,-32,0,0"
-                                    Opacity="0.75"
-                                    Source="{ThemeFile 'Icons/hltb.png'}" />
-                                <Grid
-                                    Grid.Column="1"
-                                    Height="48"
-                                    Margin="0">
-                                    <!--  Completionist (Background/Longest)  -->
-                                    <ProgressBar
-                                        Foreground="#4ade80"
-                                        Maximum="{PluginSettings Plugin=HowLongToBeat,
-                                                                 Path=Completionist}"
-                                        Style="{StaticResource LabeledProgressBarStyle}"
-                                        Tag="{PluginSettings Plugin=HowLongToBeat,
-                                                             Path=CompletionistFormat}"
-                                        Value="{PluginSettings Plugin=HowLongToBeat,
-                                                               Path=Completionist}" />
-
-                                    <!--  Main + Extra (Middle)  -->
-                                    <ProgressBar
-                                        Background="Transparent"
-                                        Foreground="#818cf8"
-                                        Maximum="{PluginSettings Plugin=HowLongToBeat,
-                                                                 Path=Completionist}"
-                                        Style="{StaticResource LabeledProgressBarStyle}"
-                                        Tag="{PluginSettings Plugin=HowLongToBeat,
-                                                             Path=MainExtraFormat}"
-                                        Value="{PluginSettings Plugin=HowLongToBeat,
-                                                               Path=MainExtra}" />
-
-                                    <!--  Main Story (Foreground/Shortest)  -->
-                                    <ProgressBar
-                                        Background="Transparent"
-                                        Foreground="#22d3ee"
-                                        Maximum="{PluginSettings Plugin=HowLongToBeat,
-                                                                 Path=Completionist}"
-                                        Style="{StaticResource LabeledProgressBarStyle}"
-                                        Tag="{PluginSettings Plugin=HowLongToBeat,
-                                                             Path=MainStoryFormat}"
-                                        Value="{PluginSettings Plugin=HowLongToBeat,
-                                                               Path=MainStory}" />
-                                    <!--  Your progress  -->
-                                    <ProgressBar
-                                        Margin="0,-32,0,0"
-                                        Foreground="#FFFFFF"
-                                        Maximum="{PluginSettings Plugin=HowLongToBeat,
-                                                                 Path=Completionist}"
-                                        Opacity="0.75"
-                                        Style="{StaticResource CircleProgressBarStyle}"
-                                        Value="{Binding Playtime, Mode=OneWay}" />
-                                </Grid>
-                            </Grid>
-
-                            <Grid
-                                Grid.Row="4"
-                                MaxHeight="330"
-                                Margin="0,16,0,0"
-                                ClipToBounds="True">
-                                <HtmlTextView
-                                    x:Name="PART_HtmlDescription"
-                                    VerticalAlignment="Top"
-                                    Focusable="False"
-                                    HtmlFontSize="32"
-                                    HtmlForeground="{DynamicResource TextColor}"
-                                    IsEnabled="False"
-                                    IsHitTestVisible="False"
-                                    LinkForeground="{DynamicResource PrimaryColor}" />
-                                <Grid.OpacityMask>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Offset="0" Color="White" />
-                                        <GradientStop Offset="0.7" Color="White" />
-                                        <GradientStop Offset="1" Color="Transparent" />
-                                    </LinearGradientBrush>
-                                </Grid.OpacityMask>
-                            </Grid>
-
+                                </ButtonEx.Style>
+                                Return to Game
+                            </ButtonEx>
                             <ButtonEx
-                                Grid.Row="5"
-                                Margin="8"
+                                Margin="32,2,2,2"
+                                BorderThickness="2"
+                                Command="{PluginSettings Plugin=NowPlaying,
+                                                            Path=CloseGame}">
+                                <ButtonEx.Style>
+                                    <Style BasedOn="{StaticResource ButtonBig}" TargetType="ButtonEx">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Game.IsRunning}" Value="False">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{PluginStatus Plugin=NowPlaying_db4e7ade-57fb-426c-8392-60e2347a0209, Status=Installed}" Value="False">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ButtonEx.Style>
+                                Exit
+                            </ButtonEx>
+                            <ButtonEx
+                                Height="78"
+                                MinWidth="22"
+                                Margin="32,2,2,2"
                                 HorizontalContentAlignment="Center"
+                                BorderThickness="2"
+                                Command="{PluginSettings Plugin=SSHelper,
+                                                            Path=OpenGameAchievementWindow}">
+                                <ButtonEx.Style>
+                                    <Style BasedOn="{StaticResource ButtonBigRound}" TargetType="ButtonEx">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{PluginSettings Plugin=SuccessStory, Path=HasData}" Value="False">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{PluginStatus Plugin=SuccessStoryFullscreenHelper, Status=Installed}" Value="False">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ButtonEx.Style>
+                                <TextBlock
+                                    Width="78"
+                                    Height="73"
+                                    Style="{StaticResource FluentIconStyle}"
+                                    TextAlignment="Center"
+                                    Text="&#xe734;"
+                                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ButtonEx}}" />
+                            </ButtonEx>
+                            <ButtonEx
+                                x:Name="PART_ButtonOptions"
+                                Height="78"
+                                MinWidth="22"
+                                Margin="32,2,2,2"
+                                HorizontalContentAlignment="Center"
+                                BorderThickness="2"
+                                Style="{DynamicResource ButtonBigRound}">
+                                <TextBlock
+                                    Width="78"
+                                    Height="73"
+                                    FontSize="48"
+                                    TextAlignment="Center">
+                                    &#x2022;&#x2022;&#x2022;
+                                </TextBlock>
+                            </ButtonEx>
+                            <ButtonEx
+                                Height="78"
+                                MinWidth="22"
+                                Margin="32,2,2,2"
+                                HorizontalContentAlignment="Center"
+                                BorderThickness="2"
                                 Command="{PluginSettings Plugin=ThemeOptions,
                                                          Path=OpenWindow[GameDetailsWindowStyle]}"
-                                Style="{DynamicResource ButtonTopMenuR16}"
+                                Style="{DynamicResource ButtonBigRound}"
                                 Tag="{DynamicResource LOCSettingsGameDetailsLabel}">
                                 <TextBlock
-                                    Margin="0,-20,0,-20"
-                                    FontSize="28"
-                                    Foreground="{DynamicResource TextBrush}"
-                                    Text="&#x1F783;"
-                                    TextAlignment="Center" />
+                                    Width="78"
+                                    Height="73"
+                                    FontSize="48"
+                                    TextAlignment="Center">
+                                    &#9432;
+                                </TextBlock>
                             </ButtonEx>
-                        </Grid>
-                        <ButtonEx
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            Height="72"
-                            MinWidth="72"
-                            Margin="24,32,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            pbeh:FocusBahaviors.OnVisibilityFocus="False"
-                            Command="{Binding DataContext.ToggleGameDetailsCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                            Style="{DynamicResource ButtonTopMenu}">
-                            <ButtonEx.Effect>
-                                <DropShadowEffect
-                                    BlurRadius="10"
-                                    Direction="315"
-                                    Opacity="0.75"
-                                    ShadowDepth="0"
-                                    Color="Black" />
-                            </ButtonEx.Effect>
+                        </StackPanel>
+
+                        <!--  HowLongToBeat entry  -->
+                        <StackPanel 
+                            Margin="22,32,0,22" 
+                            Grid.Row="3"
+                            Grid.Column="1">
+                            <StackPanel.Style>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{PluginSettings Plugin=HowLongToBeat, Path=HasData}" Value="False">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[HowLongToBeat]}" Value="False">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Style>
                             <TextBlock
-                                Height="54"
-                                Margin="6,0,6,6"
-                                VerticalAlignment="Bottom"
-                                FontSize="56"
-                                Style="{StaticResource FluentIconStyle}"
-                                Text="&#xf0b0;" />
-                        </ButtonEx>
+                                Margin="0,0,0,16"
+                                Opacity="0.75"
+                                FontFamily="{DynamicResource FontDefaultBold}"
+                                FontSize="24"
+                                Foreground="{DynamicResource TextBrushDark}"
+                                Style="{DynamicResource TextBlockBaseStyle}"
+                                Text="HowLongToBeat" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="0,0,12,0"
+                                    Opacity="0.75"
+                                    Style="{StaticResource FluentIconStyle}"
+                                    Text="&#xe916;" />
+                                <StackPanel Margin="0,0,48,0">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock
+                                            FontFamily="{DynamicResource FontDefaultBold}"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Foreground="{DynamicResource HLTBMainStoryBrush}"
+                                            Text="{PluginSettings Plugin=HowLongToBeat,
+                                                                    Path=MainStoryFormat,
+                                                                    FallbackValue='-'}" />
+                                    </StackPanel>
+                                    <TextBlock
+                                        Margin="0,0,0,10"
+                                        FontSize="22"
+                                        Opacity="0.75"
+                                        Style="{DynamicResource TextBlockBaseStyle}"
+                                        Text="{DynamicResource LOCHowLongToBeatMainStory}" />
+                                </StackPanel>
+                                <StackPanel Margin="0,0,48,0">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock
+                                            FontFamily="{DynamicResource FontDefaultBold}"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Foreground="{DynamicResource HLTBMainExtraBrush}"
+                                            Text="{PluginSettings Plugin=HowLongToBeat,
+                                                                    Path=MainExtraFormat,
+                                                                    FallbackValue='-'}" />
+                                    </StackPanel>
+                                    <TextBlock
+                                        Margin="0,0,0,10"
+                                        FontSize="22"
+                                        Opacity="0.75"
+                                        Style="{DynamicResource TextBlockBaseStyle}"
+                                        Text="{DynamicResource LOCHowLongToBeatMainExtra}" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock
+                                            FontFamily="{DynamicResource FontDefaultBold}"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Foreground="{DynamicResource HLTBCompletionistBrush}"
+                                            Text="{PluginSettings Plugin=HowLongToBeat,
+                                                                    Path=CompletionistFormat,
+                                                                    FallbackValue='-'}" />
+                                    </StackPanel>
+                                    <TextBlock
+                                        Margin="0,0,0,10"
+                                        FontSize="22"
+                                        Opacity="0.75"
+                                        Style="{DynamicResource TextBlockBaseStyle}"
+                                        Text="{DynamicResource LOCHowLongToBeatCompletionist}" />
+                                </StackPanel>
+                            </StackPanel>    
+                        </StackPanel>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

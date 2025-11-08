@@ -1131,7 +1131,7 @@
                             </Grid.RowDefinitions>
                             <FadeImage
                                 x:Name="PART_ImageBackground"
-                                Grid.RowSpan="5"
+                                Grid.RowSpan="4"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Top"
                                 RenderOptions.BitmapScalingMode="LowQuality"
@@ -1151,7 +1151,7 @@
                                 </FadeImage.Style>
                             </FadeImage>
                             <Image
-                                Grid.RowSpan="5"
+                                Grid.RowSpan="4"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Opacity="0.5"
@@ -1175,7 +1175,7 @@
                                     </Style>
                                 </Image.Style>
                             </Image>
-                            <Rectangle Grid.RowSpan="5">
+                            <Rectangle Grid.RowSpan="4">
                                 <Rectangle.Fill>
                                     <ImageBrush ImageSource="{ThemeFile 'Images/button-full.png'}" />
                                 </Rectangle.Fill>
@@ -1539,13 +1539,7 @@
                             </Grid>
 
                             <!--  Button Hints  -->
-                            <Grid Grid.Row="4" Height="70">
-                                <Grid.Background>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                        <GradientStop Offset="0" Color="#000F0F0F" />
-                                        <GradientStop Offset="1" Color="#CC0F0F0F" />
-                                    </LinearGradientBrush>
-                                </Grid.Background>
+                            <Grid Grid.Row="4" Height="70" HorizontalAlignment="Right">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="24" />
                                     <ColumnDefinition Width="Auto" />
@@ -1554,14 +1548,6 @@
                                     <ColumnDefinition Width="24" />
                                 </Grid.ColumnDefinitions>
                                 <Border Grid.Column="1">
-                                    <Border.Effect>
-                                        <DropShadowEffect
-                                            BlurRadius="16"
-                                            Direction="315"
-                                            Opacity="0.9"
-                                            ShadowDepth="0"
-                                            Color="Black" />
-                                    </Border.Effect>
                                     <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                         <!--  Details  -->
                                         <ButtonEx
@@ -1773,6 +1759,9 @@
                                         <Style BasedOn="{StaticResource ButtonTopMenuData}" TargetType="ButtonEx">
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{PluginStatus Plugin=SuccessStoryFullscreenHelper, Status=Installed}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[ShowAchievementsOnMainView]}" Value="False">
                                                     <Setter Property="Visibility" Value="Collapsed" />
                                                 </DataTrigger>
                                             </Style.Triggers>

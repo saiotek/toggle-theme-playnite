@@ -236,6 +236,10 @@ Variables:
     Title: Achievements (Requires SuccessStory)
     Type: Boolean
     Default: true
+  ShowAchievementsOnMainView:
+    Title: Show Achievements on Main View
+    Type: Boolean
+    Default: true
   HowLongToBeat:
     Title: HowLongToBeat (Requires HLTB)
     Type: Boolean
