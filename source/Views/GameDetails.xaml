@@ -816,7 +816,7 @@
                             <ColumnDefinition Width="24" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="3*" />
+                            <RowDefinition Height="2.3*" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="190" />
@@ -839,7 +839,7 @@
                                     <Setter Property="MaxWidth" Value="600" />
                                     <Setter Property="MaxHeight" Value="350" />
                                     <Setter Property="Opacity" Value="1" />
-                                    <Setter Property="Margin" Value="32,0,0,64" />
+                                    <Setter Property="Margin" Value="32,0,0,96" />
                                     <Setter Property="HorizontalAlignment" Value="Left" />
                                     <Setter Property="VerticalAlignment" Value="Bottom" />
                                 </Style>
@@ -1068,6 +1068,43 @@
                                     </StackPanel>
                                 </StackPanel>
 
+                                <!--  Critic score entry  -->
+                                <StackPanel Margin="0,0,48,0" Orientation="Horizontal">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{PluginSettings Plugin=ThemeOptions, Path=Options[CriticScore]}" Value="False">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                                 <DataTrigger Binding="{Binding Game.CriticScore}" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Game.CriticScore}" Value="">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+                                    <TextBlock
+                                        Margin="0,0,12,0"
+                                        Opacity="0.75"
+                                        Style="{StaticResource FluentIconStyle}"
+                                        Text="&#xe9d5;" />
+                                    <StackPanel Margin="0,0,12,0">
+                                        <TextBlock
+                                            FontFamily="{DynamicResource FontDefaultBold}"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="{Binding Game.CriticScore}" />
+                                        <TextBlock
+                                            Margin="0,0,0,10"
+                                            FontSize="22"
+                                            Opacity="0.75"
+                                            Style="{DynamicResource TextBlockBaseStyle}"
+                                            Text="Critic Score" />
+                                    </StackPanel>
+                                </StackPanel>
+
                                 <!--  Library entry  -->
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel.Style>
@@ -1122,7 +1159,7 @@
                                 pbeh:FocusBahaviors.OnVisibilityFocus="True"
                                 BorderThickness="2">
                                 <ButtonEx.Style>
-                                    <Style BasedOn="{StaticResource ButtonBig}" TargetType="ButtonEx">
+                                    <Style BasedOn="{StaticResource ButtonBigPlayAndInstall}" TargetType="ButtonEx">
                                         <Setter Property="Visibility" Value="Visible" />
                                         <Style.Triggers>
                                             <MultiDataTrigger>

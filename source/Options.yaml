@@ -207,6 +207,10 @@ Variables:
     LocKey: LOCBanners
     Type: Boolean
     Default: false
+  ShowAchievementsOnMainView:
+    Title: Show Achievements on Main View
+    Type: Boolean
+    Default: true
   GameDetailsHeader:
     Title: Game Details Info
     Type: Header
@@ -236,11 +240,11 @@ Variables:
     Title: Achievements (Requires SuccessStory)
     Type: Boolean
     Default: true
-  ShowAchievementsOnMainView:
-    Title: Show Achievements on Main View
-    Type: Boolean
-    Default: true
   HowLongToBeat:
     Title: HowLongToBeat (Requires HLTB)
+    Type: Boolean
+    Default: true
+  CriticScore:
+    Title: Critic Score
     Type: Boolean
     Default: true

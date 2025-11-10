@@ -1377,7 +1377,7 @@
                             </TextBlock>
 
                             <!--  Menu Bar / Dock  -->
-                            <Grid Grid.Row="3" Margin="0">
+                            <Grid Grid.Row="3" Margin="0,0,0,20">
                                 <Grid.Style>
                                     <Style TargetType="Grid">
                                         <Setter Property="Height" Value="140" />

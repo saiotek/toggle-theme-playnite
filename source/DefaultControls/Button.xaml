@@ -182,42 +182,19 @@
                                                 <Border
                                                         x:Name="BorderStandard"
                                                         Background="{DynamicResource ControlBackgroundBrush}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderBrush="{DynamicResource ControlBackgroundBrush}"
                                                         BorderThickness="{TemplateBinding BorderThickness}"
-                                                        CornerRadius="100">
-                                                        <Border.Effect>
-                                                                <DropShadowEffect
-                                                                        BlurRadius="10"
-                                                                        Direction="315"
-                                                                        Opacity="0.5"
-                                                                        ShadowDepth="5"
-                                                                        Color="Black" />
-                                                        </Border.Effect>
+                                                        CornerRadius="5">
                                                 </Border>
                                                 <Border
                                                         x:Name="BorderFocus"
-                                                        Margin="-10"
-                                                        Background="#00000000"
-                                                        BorderBrush="{DynamicResource PrimaryBrush}"
-                                                        BorderThickness="4"
-                                                        CornerRadius="100"
+                                                        Margin="-2"
+                                                        Background="{DynamicResource TextBrush}"
+                                                        BorderBrush="{DynamicResource TextBrush}"
+                                                        BorderThickness="2"
+                                                        CornerRadius="5"
                                                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                         Visibility="Hidden">
-                                                        <Border.Effect>
-                                                                <DropShadowEffect
-                                                                        BlurRadius="12"
-                                                                        Direction="315"
-                                                                        Opacity="0.5"
-                                                                        ShadowDepth="8"
-                                                                        Color="Black" />
-                                                        </Border.Effect>
-                                                        <Border
-                                                                Margin="4"
-                                                                Background="{DynamicResource TextBrush}"
-                                                                BorderBrush="{DynamicResource TextBrush}"
-                                                                BorderThickness="0"
-                                                                CornerRadius="100"
-                                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                                 </Border>
                                                 <TextBlock
                                                         Margin="0"
@@ -264,53 +241,32 @@
                                                 <Border
                                                         x:Name="BorderStandard"
                                                         Background="{DynamicResource ControlBackgroundBrush}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderBrush="{DynamicResource ControlBackgroundBrush}"
                                                         BorderThickness="{TemplateBinding BorderThickness}"
-                                                        CornerRadius="39">
-                                                        <Border.Effect>
-                                                                <DropShadowEffect
-                                                                        BlurRadius="10"
-                                                                        Direction="315"
-                                                                        Opacity="0.5"
-                                                                        ShadowDepth="5"
-                                                                        Color="Black" />
-                                                        </Border.Effect>
+                                                        CornerRadius="5">
                                                 </Border>
 
                                                 <Border
                                                         x:Name="BorderFocus"
-                                                        Margin="-10"
-                                                        Background="#00000000"
-                                                        BorderBrush="{DynamicResource PrimaryBrush}"
-                                                        BorderThickness="4"
-                                                        CornerRadius="50"
+                                                        Margin="-2"
+                                                        Background="{DynamicResource TextBrush}"
+                                                        BorderBrush="{DynamicResource TextBrush}"
+                                                        BorderThickness="2"
+                                                        CornerRadius="5"
                                                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                         Visibility="Hidden">
-                                                        <Border.Effect>
-                                                                <DropShadowEffect
-                                                                        BlurRadius="12"
-                                                                        Direction="315"
-                                                                        Opacity="0.5"
-                                                                        ShadowDepth="8"
-                                                                        Color="Black" />
-                                                        </Border.Effect>
-                                                        <Border
-                                                                Margin="4"
-                                                                Background="{DynamicResource TextBrush}"
-                                                                BorderBrush="{DynamicResource TextBrush}"
-                                                                BorderThickness="0"
-                                                                CornerRadius="42"
-                                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                                 </Border>
-                                                <TextBlock
-                                                        Margin="38,4,38,10"
-                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                        FontSize="48"
-                                                        Foreground="{TemplateBinding Foreground}"
-                                                        Style="{DynamicResource TextBlockBaseStyle}">
-                                                        <ContentPresenter />
-                                                </TextBlock>
+                                                <StackPanel Orientation="Horizontal">
+                                                        <TextBlock
+                                                                Margin="38,4,38,10"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                FontSize="48"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                Style="{DynamicResource TextBlockBaseStyle}">
+                                                                <ContentPresenter />
+                                                        </TextBlock>
+                                                </StackPanel>   
                                         </Grid>
                                         <ControlTemplate.Triggers>
                                                 <Trigger Property="IsEnabled" Value="False">
@@ -325,6 +281,73 @@
                                                         <Setter TargetName="BorderFocus" Property="Visibility" Value="Visible" />
                                                         <Setter TargetName="BorderStandard" Property="Visibility" Value="Hidden" />
                                                         <Setter Property="Foreground" Value="{DynamicResource MainBackgourndBrush}" />
+                                                </Trigger>
+                                                <Trigger Property="IsEnabled" Value="False">
+                                                        <Setter Property="Foreground" Value="{DynamicResource TextBrushDark}" />
+                                                </Trigger>
+                                        </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                        </Setter.Value>
+                </Setter>
+        </Style>
+        <Style
+                x:Key="ButtonBigPlayAndInstall"
+                BasedOn="{StaticResource {x:Type Button}}"
+                TargetType="ButtonEx">
+                <Setter Property="Template">
+                        <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                        <Grid>
+
+                                                <Border
+                                                        x:Name="BorderStandard"
+                                                        Background="{DynamicResource ControlBackgroundBrush}"
+                                                        BorderBrush="{DynamicResource ControlBackgroundBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        CornerRadius="5">
+                                                </Border>
+
+                                                <Border
+                                                        x:Name="BorderFocus"
+                                                        Margin="-2"
+                                                        Background="#59BF40"
+                                                        BorderBrush="#59BF40"
+                                                        BorderThickness="2"
+                                                        CornerRadius="5"
+                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                        Visibility="Hidden">
+                                                </Border>
+                                                <StackPanel Orientation="Horizontal">
+                                                        <TextBlock x:Name="Icon" Text="&#xf5b0;" FontFamily="Segoe Fluent Icons" FontSize="48" 
+                                                                VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                                Foreground="{TemplateBinding Foreground}" Margin="38,0,0,0"/>
+                                                        <TextBlock
+                                                                Margin="24,4,38,10"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                FontSize="48"
+                                                                Foreground="{TemplateBinding Foreground}"
+                                                                Style="{DynamicResource TextBlockBaseStyle}">
+                                                                <ContentPresenter />
+                                                        </TextBlock>
+                                                </StackPanel>   
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                                <DataTrigger Binding="{Binding IsInstalled}" Value="False">
+                                                        <Setter Property="Background" Value="#1A9FFF" TargetName="BorderFocus" />
+                                                        <Setter Property="BorderBrush" Value="#1A9FFF" TargetName="BorderFocus" />
+                                                        <Setter Property="Text" Value="&#xe78c;" TargetName="Icon" />
+                                                </DataTrigger>
+                                                <Trigger Property="IsEnabled" Value="False">
+                                                        <Setter Property="Opacity" Value="0.5" />
+                                                </Trigger>
+                                                <Trigger Property="IsFocused" Value="True">
+                                                        <Setter TargetName="BorderFocus" Property="Visibility" Value="Visible" />
+                                                        <Setter TargetName="BorderStandard" Property="Visibility" Value="Hidden" />
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter TargetName="BorderFocus" Property="Visibility" Value="Visible" />
+                                                        <Setter TargetName="BorderStandard" Property="Visibility" Value="Hidden" />
                                                 </Trigger>
                                                 <Trigger Property="IsEnabled" Value="False">
                                                         <Setter Property="Foreground" Value="{DynamicResource TextBrushDark}" />
