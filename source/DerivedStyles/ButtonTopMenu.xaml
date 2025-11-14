@@ -9,15 +9,15 @@
             <Setter.Value>
                 <ControlTemplate TargetType="CheckBox">
                     <Grid>
-                        <!-- Focus label - appears above checkbox when focused -->
+                        <!--  Focus label - appears above checkbox when focused  -->
                         <TextBlock
-            Margin="-85,-56,-85,0"
-            FontSize="16"
-            FontWeight="Bold"
-            Foreground="{DynamicResource TextBrush}"
-            Text="{TemplateBinding Tag}"
-            TextAlignment="Center"
-            TextWrapping="Wrap">
+                            Margin="-85,-56,-85,0"
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Foreground="{DynamicResource TextBrush}"
+                            Text="{TemplateBinding Tag}"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="Visibility" Value="Collapsed" />
@@ -30,21 +30,21 @@
                             </TextBlock.Style>
                         </TextBlock>
 
-                        <!-- Main checkbox border -->
+                        <!--  Main checkbox border  -->
                         <Border
-            x:Name="MainBorder"
-            Margin="-7,-8,-7,-8"
-            Padding="6"
-            Background="Transparent"
-            BorderBrush="Transparent"
-            BorderThickness="4"
-            CornerRadius="40">
+                            x:Name="MainBorder"
+                            Margin="-7,-8,-7,-8"
+                            Padding="6"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="4"
+                            CornerRadius="40">
                             <TextBlock
-              x:Name="Icon"
-              Margin="8"
-              FontSize="52"
-              Style="{StaticResource FluentIconStyle}"
-              Text="&#xf0e2;" />
+                                x:Name="Icon"
+                                Margin="8"
+                                FontSize="52"
+                                Style="{StaticResource FluentIconStyle}"
+                                Text="&#xf0e2;" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -70,16 +70,16 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <!-- Focus label - appears above button when focused -->
+                        <!--  Focus label - appears above button when focused  -->
                         <TextBlock
+                            Width="200"
                             Margin="-85,-56,-85,0"
                             FontSize="16"
                             FontWeight="Bold"
                             Foreground="{DynamicResource TextBrush}"
                             Text="{TemplateBinding Tag}"
                             TextAlignment="Center"
-                            TextWrapping="Wrap"
-                            Width="200">
+                            TextWrapping="Wrap">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="Visibility" Value="Collapsed" />
@@ -92,7 +92,7 @@
                             </TextBlock.Style>
                         </TextBlock>
 
-                        <!-- Main button border -->
+                        <!--  Main button border  -->
                         <Border
                             x:Name="MainBorder"
                             Margin="-7,-8,-7,-8"
@@ -116,31 +116,31 @@
     </Style>
 
     <Style x:Key="ButtonTopMenuData" TargetType="Button">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-    <Setter Property="SnapsToDevicePixels" Value="True" />
-    <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="Template">
-      <Setter.Value>
-        <ControlTemplate TargetType="Button">
-          <Border
-            x:Name="MainBorder"
-            Margin="-7,-8,-7,-8"
-            Padding="18,6,6,6"
-            Background="Transparent"
-            BorderBrush="Transparent"
-            BorderThickness="4"
-            CornerRadius="48">
-            <ContentPresenter />
-          </Border>
-          <ControlTemplate.Triggers>
-            <Trigger Property="IsFocused" Value="True">
-              <Setter TargetName="MainBorder" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
-              <Setter TargetName="MainBorder" Property="Background" Value="#1AFFFFFF" />
-            </Trigger>
-          </ControlTemplate.Triggers>
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-  </Style>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        x:Name="MainBorder"
+                        Margin="-7,-8,-7,-8"
+                        Padding="18,6,6,6"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="4"
+                        CornerRadius="48">
+                        <ContentPresenter />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+                            <Setter TargetName="MainBorder" Property="Background" Value="#1AFFFFFF" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
