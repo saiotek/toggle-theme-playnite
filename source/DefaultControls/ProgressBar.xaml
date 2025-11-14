@@ -30,7 +30,19 @@
                                 HorizontalAlignment="Left"
                                 Fill="{TemplateBinding Foreground}"
                                 RadiusX="8"
-                                RadiusY="8" />
+                                RadiusY="8">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill">
+                                        <VisualBrush.Visual>
+                                            <Border
+                                                Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                                Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                                Background="Black"
+                                                CornerRadius="8" />
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
                         </Grid>
                     </Border>
                 </ControlTemplate>
@@ -65,7 +77,19 @@
                                 HorizontalAlignment="Left"
                                 Fill="{TemplateBinding Foreground}"
                                 RadiusX="12"
-                                RadiusY="12" />
+                                RadiusY="12">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill">
+                                        <VisualBrush.Visual>
+                                            <Border
+                                                Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                                Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                                Background="Black"
+                                                CornerRadius="12" />
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
                         </Grid>
                     </Border>
                 </ControlTemplate>
@@ -100,7 +124,19 @@
                                 HorizontalAlignment="Left"
                                 Fill="{TemplateBinding Foreground}"
                                 RadiusX="12"
-                                RadiusY="12" />
+                                RadiusY="12">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill">
+                                        <VisualBrush.Visual>
+                                            <Border
+                                                Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                                Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                                Background="Black"
+                                                CornerRadius="12" />
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
                         </Grid>
                     </Border>
                 </ControlTemplate>
@@ -137,7 +173,19 @@
                                 HorizontalAlignment="Left"
                                 Fill="{TemplateBinding Foreground}"
                                 RadiusX="24"
-                                RadiusY="24" />
+                                RadiusY="24">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill">
+                                        <VisualBrush.Visual>
+                                            <Border
+                                                Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                                Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
+                                                Background="Black"
+                                                CornerRadius="24" />
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
                         </Grid>
                     </Border>
                 </ControlTemplate>
