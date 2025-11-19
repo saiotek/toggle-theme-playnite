@@ -345,6 +345,9 @@
                                         <DataTrigger Binding="{Binding Library}" Value="Xcloud">
                                             <Setter Property="BorderBrush" Value="#32CD32" />
                                         </DataTrigger>
+                                        <DataTrigger Binding="{Binding Library}" Value="Xbox">
+                                            <Setter Property="BorderBrush" Value="#32CD32" />
+                                        </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
                             </Border.Style>
