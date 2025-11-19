@@ -38,8 +38,6 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
                                 <!--  Game Icon  -->
@@ -100,179 +98,6 @@
                                             Color="Black" />
                                     </TextBlock.Effect>
                                 </TextBlock>
-
-                                <!--  Vertical Separator  -->
-                                <Border
-                                    Grid.Column="4"
-                                    Width="2"
-                                    Height="48"
-                                    Margin="16,0,16,0"
-                                    VerticalAlignment="Center"
-                                    Background="{DynamicResource TextBrush}"
-                                    Opacity="0.3">
-                                    <Border.Style>
-                                        <Style TargetType="Border">
-                                            <Setter Property="Visibility" Value="Visible" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding SelectedGame.Tags[0]}" Value="{x:Null}">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Border.Style>
-                                </Border>
-
-                                <!--  Tags (First 5) - Takes remaining space  -->
-                                <Grid
-                                    Grid.Column="5"
-                                    VerticalAlignment="Center"
-                                    ClipToBounds="True">
-                                    <Grid.Style>
-                                        <Style TargetType="Grid">
-                                            <Setter Property="Visibility" Value="Visible" />
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding SelectedGame.Tags[0]}" Value="{x:Null}">
-                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Grid.Style>
-
-                                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                        <!--  Tag 1  -->
-                                        <Border
-                                            Margin="0,0,8,0"
-                                            Padding="12,6"
-                                            Background="#40808080"
-                                            CornerRadius="12">
-                                            <Border.Style>
-                                                <Style TargetType="Border">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding SelectedGame.Tags[0]}" Value="{x:Null}">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </Border.Style>
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontFamily="{DynamicResource FontDefault}"
-                                                FontSize="18"
-                                                Foreground="{DynamicResource TextBrush}"
-                                                Text="{Binding SelectedGame.Tags[0].Name}" />
-                                        </Border>
-
-                                        <!--  Tag 2  -->
-                                        <Border
-                                            Margin="0,0,8,0"
-                                            Padding="12,6"
-                                            Background="#40808080"
-                                            CornerRadius="12">
-                                            <Border.Style>
-                                                <Style TargetType="Border">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding SelectedGame.Tags[1]}" Value="{x:Null}">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </Border.Style>
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontFamily="{DynamicResource FontDefault}"
-                                                FontSize="18"
-                                                Foreground="{DynamicResource TextBrush}"
-                                                Text="{Binding SelectedGame.Tags[1].Name}" />
-                                        </Border>
-
-                                        <!--  Tag 3  -->
-                                        <Border
-                                            Margin="0,0,8,0"
-                                            Padding="12,6"
-                                            Background="#40808080"
-                                            CornerRadius="12">
-                                            <Border.Style>
-                                                <Style TargetType="Border">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding SelectedGame.Tags[2]}" Value="{x:Null}">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </Border.Style>
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontFamily="{DynamicResource FontDefault}"
-                                                FontSize="18"
-                                                Foreground="{DynamicResource TextBrush}"
-                                                Text="{Binding SelectedGame.Tags[2].Name}" />
-                                        </Border>
-
-                                        <!--  Tag 4  -->
-                                        <Border
-                                            Margin="0,0,8,0"
-                                            Padding="12,6"
-                                            Background="#40808080"
-                                            CornerRadius="12">
-                                            <Border.Style>
-                                                <Style TargetType="Border">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding SelectedGame.Tags[3]}" Value="{x:Null}">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </Border.Style>
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontFamily="{DynamicResource FontDefault}"
-                                                FontSize="18"
-                                                Foreground="{DynamicResource TextBrush}"
-                                                Text="{Binding SelectedGame.Tags[3].Name}" />
-                                        </Border>
-
-                                        <!--  Tag 5  -->
-                                        <Border
-                                            Margin="0,0,8,0"
-                                            Padding="12,6"
-                                            Background="#40808080"
-                                            CornerRadius="12">
-                                            <Border.Style>
-                                                <Style TargetType="Border">
-                                                    <Setter Property="Visibility" Value="Visible" />
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding SelectedGame.Tags[4]}" Value="{x:Null}">
-                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </Border.Style>
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                FontFamily="{DynamicResource FontDefault}"
-                                                FontSize="18"
-                                                Foreground="{DynamicResource TextBrush}"
-                                                Text="{Binding SelectedGame.Tags[4].Name}" />
-                                        </Border>
-                                        <!--  Padder for fade  -->
-                                        <Border
-                                            Width="512"
-                                            Height="16"
-                                            Background="{DynamicResource ControlBackgroundDarkBrush}" />
-                                    </StackPanel>
-
-                                    <Grid.OpacityMask>
-                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                            <GradientStop Offset="0" Color="White" />
-                                            <GradientStop Offset="0.85" Color="White" />
-                                            <GradientStop Offset="1" Color="Transparent" />
-                                        </LinearGradientBrush>
-                                    </Grid.OpacityMask>
-                                </Grid>
                             </Grid>
 
                             <!--  Left side: Description with scroll  -->
@@ -286,7 +111,56 @@
                                 HorizontalScrollBarVisibility="Disabled"
                                 VerticalScrollBarVisibility="Auto">
                                 <StackPanel Orientation="Vertical">
+                                    <!--  Tags  -->
+                                    <Grid Margin="0,24,0,0" VerticalAlignment="Center">
+                                        <Grid.Style>
+                                            <Style TargetType="Grid">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding SelectedGame.Tags.Count}" Value="0">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
 
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="64" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock
+                                            Grid.Column="0"
+                                            Margin="8,0,0,0"
+                                            FontSize="32"
+                                            Opacity="0.75"
+                                            Style="{StaticResource FluentIconStyle}"
+                                            Text="&#xe8ec;" />
+                                        <ItemsControl Grid.Column="1" ItemsSource="{Binding SelectedGame.Tags}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border
+                                                        Margin="0,0,8,4"
+                                                        Padding="12,6"
+                                                        Background="#40808080"
+                                                        CornerRadius="12">
+                                                        <TextBlock
+                                                            VerticalAlignment="Center"
+                                                            FontFamily="{DynamicResource FontDefault}"
+                                                            FontSize="18"
+                                                            Foreground="{DynamicResource TextBrush}"
+                                                            Text="{Binding Name}" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                                    <!--  HLTB  -->
                                     <Grid Height="48" Margin="0,24,16,64">
                                         <Grid.Style>
                                             <Style TargetType="Grid">
